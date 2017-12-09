@@ -15,7 +15,6 @@ export default function withReact<State, Actions>(container?): (app: App<State, 
   return app => props => app({
     ...props,
     onRender(view) {
-      console.log(view)
       props.onRender && props.onRender(view)
       return ReactDOM.render(view, container)
     }
