@@ -9,11 +9,13 @@ const DIST = `${__dirname}/static/dist`
 
 module.exports = module.exports = {
   entry: {
-    'hydux-react': "./src/index.ts",
+    'react': "./src/index.ts",
   },
   output: {
-      filename: "[name].js",
-      path: __dirname + "/dist"
+      filename: "hydux.[name].js",
+      path: __dirname + "/dist",
+      library: ["hydux", "[name]"],
+      libraryTarget: 'umd'
   },
 
   // Enable sourcemaps for debugging webpack's output.
