@@ -2,18 +2,6 @@
 # yarn lockfile v1
 
 
-"@hyperapp/logger@^0.3.1":
-  version "0.3.1"
-  resolved "http://registry.npm.taobao.org/@hyperapp/logger/download/@hyperapp/logger-0.3.1.tgz#c4006a7c3740a490cf6aa89a2a8951a961f0d1fd"
-
-"@hyperapp/router@^0.3.0":
-  version "0.3.0"
-  resolved "http://registry.npm.taobao.org/@hyperapp/router/download/@hyperapp/router-0.3.0.tgz#530648e974193f59a14f1a9c76128a7462de9cf0"
-
-"@types/es6-promise@^0.0.33":
-  version "0.0.33"
-  resolved "http://registry.npm.taobao.org/@types/es6-promise/download/@types/es6-promise-0.0.33.tgz#280a707e62b1b6bef1a86cc0861ec63cd06c7ff3"
-
 "@types/node@^8.0.55":
   version "8.0.55"
   resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-8.0.55.tgz#015966c0af809216b8a46cc527b5c211994d36f0"
@@ -1378,10 +1366,6 @@ es6-map@^0.1.3:
     es6-symbol "~3.1.1"
     event-emitter "~0.3.5"
 
-es6-promise@^4.1.1:
-  version "4.1.1"
-  resolved "http://registry.npm.taobao.org/es6-promise/download/es6-promise-4.1.1.tgz#8811e90915d9a0dba36274f0b242dbda78f9c92a"
-
 es6-set@~0.1.5:
   version "0.1.5"
   resolved "http://registry.npm.taobao.org/es6-set/download/es6-set-0.1.5.tgz#d2b3ec5d4d800ced818db538d28974db0a73ccb1"
@@ -2138,6 +2122,14 @@ http-signature@~1.2.0:
 https-browserify@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/https-browserify/download/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
+
+hydux@^0.1.3:
+  version "0.1.3"
+  resolved "http://registry.npm.taobao.org/hydux/download/hydux-0.1.3.tgz#6430eaf235cf74e2e0bfd71313a96bf0b415010d"
+  dependencies:
+    picodom "^1.0.2"
+  optionalDependencies:
+    remotedev "^0.2.7"
 
 iconv-lite@0.4.19:
   version "0.4.19"
