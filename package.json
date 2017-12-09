@@ -3,6 +3,8 @@
   "version": "0.1.4",
   "description": "React enhancer for hydux, hydux is an elm-like state manager inspired by Hyperapp, Elmish, Elm, Redux, etc. Working with any vdom library!",
   "main": "./lib/index.js",
+  "typings": "./lib/index",
+  "types": "./lib/index",
   "scripts": {
     "build": "del lib && tsc -d -t es5",
     "build:dist": "webpack -p --progress --profile",
