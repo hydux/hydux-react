@@ -1,5 +1,5 @@
 # hydux-react
-React enhancer for hydux.
+React renderer for hydux.
 
 ## Install
 ```sh
@@ -40,8 +40,8 @@ export default app({
   view: (state: State) => (actions: Actions) =>
     <div>
       <h1>{state.count}</h1>
-      <button onclick={actions.down}>–</button>
-      <button onclick={actions.up}>+</button>
+      <button onClick={actions.down}>–</button>
+      <button onClick={actions.up}>+</button>
     </div>
 })
 ```
