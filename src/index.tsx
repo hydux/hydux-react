@@ -1,11 +1,10 @@
-import { createElement, PureComponent } from 'react'
+import * as React from 'react'
 import { render as reactRender } from 'react-dom'
 import { App } from 'hydux'
 
-// Fix React's default export doesn't work with typescript loader
-export const React = { createElement }
+export { React }
 
-class PureComp extends PureComponent { }
+class PureComp extends React.PureComponent { }
 
 export function PureView(props) {
   return (
@@ -27,6 +26,8 @@ export default function withReact<State, Actions>(container?): (app: App<State, 
     ...props,
     onRender(view) {
       props.onRender && props.onRender(view)
+      // ReactDOM.render is already batched
+      // if wrapped by rAF it might break input's value and onChange
       return reactRender(view, container)
     }
   })
