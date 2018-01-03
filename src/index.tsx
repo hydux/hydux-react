@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { render as reactRender } from 'react-dom'
-import { App } from 'hydux'
+import app, { App, ActionsType, noop, Sub } from 'hydux'
 
-export { React }
+export { React, Sub }
 
 class PureComp extends React.PureComponent { }
 
@@ -12,6 +12,41 @@ export function PureView(props) {
       {props.children}
     </PureComp>
   )
+}
+
+export abstract class HyduxComponent<Props, State, Actions> extends React.PureComponent<Props, { state: State }> {
+  abstract init: (props: Props) => State
+  abstract actions: ActionsType<State, Actions>
+  abstract view: (props: Props, state: State, actions: Actions) => JSX.Element | null | false
+
+  ctx = app<State, Actions>({
+    init: () => this.init(this.props),
+    actions: this.actions,
+    view: noop,
+    onRender: _ => {
+      this.setState({
+        state: this.ctx.getState(),
+      })
+    }
+  })
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      state: this.init(props),
+    }
+  }
+
+  render() {
+    return this.view(this.props, this.state.state, this.ctx.actions)
+  }
+
+}
+
+export type Props = {
+  text?: string,
+  onSuccess?: () => void,
+  onCancel?: () => void,
 }
 
 // work for hmr
