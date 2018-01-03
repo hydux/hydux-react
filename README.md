@@ -3,7 +3,7 @@ React renderer for hydux.
 
 ## Install
 ```sh
-yarn add hydux-react # or npm i hydux-react hydux
+yarn add hydux-react # or npm i hydux-react
 ```
 
 ## Usage
