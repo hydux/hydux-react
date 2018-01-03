@@ -5,6 +5,7 @@ import { ActionsType } from 'hydux/lib/types'
 import './polyfill.js'
 import Intro from './intro'
 import Counter, { State as CounterState, Actions as CounterActions } from './counter'
+import CounterComp from './comp'
 
 // let app = withPersist<State, Actions>({
 //   key: 'time-game/v1'
@@ -35,9 +36,11 @@ type State = typeof state
 const view = (state: State) => (actions: Actions) =>
     <main>
       <h1>Counter1:</h1>
-      {Counter.view(state.counter1)(actions.counter1)}
+      {Counter.view(state.counter1, actions.counter1)}
       <h1>Counter2:</h1>
-      {Counter.view(state.counter2)(actions.counter2)}
+      {Counter.view(state.counter2, actions.counter2)}
+      <h1>Counter HyduxComponent:</h1>
+      <CounterComp init={10} />
       <Intro />
     </main>
 

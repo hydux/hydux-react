@@ -2123,9 +2123,9 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/https-browserify/download/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
 
-hydux@^0.1.3:
-  version "0.1.4"
-  resolved "http://registry.npm.taobao.org/hydux/download/hydux-0.1.4.tgz#a3df7054c683928b6f33ec4c114a88da8fcfbb37"
+hydux@^0.2.0:
+  version "0.2.0"
+  resolved "http://registry.npm.taobao.org/hydux/download/hydux-0.2.0.tgz#3035fb47a4557422a94713de7ec1474effac1b34"
   dependencies:
     picodom "^1.0.2"
   optionalDependencies:

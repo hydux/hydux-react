@@ -18,23 +18,34 @@ export abstract class HyduxComponent<Props, State, Actions> extends React.PureCo
   abstract init: (props: Props) => State
   abstract actions: ActionsType<State, Actions>
   abstract view: (props: Props, state: State, actions: Actions) => JSX.Element | null | false
-
-  ctx = app<State, Actions>({
-    init: () => this.init(this.props),
-    actions: this.actions,
-    view: noop,
-    onRender: _ => {
-      this.setState({
-        state: this.ctx.getState(),
-      })
-    }
-  })
-
+  ctx: {
+    actions: Actions,
+    getState: () => State,
+  }
+  state = {
+    state: null as any as State
+  }
   constructor(props) {
     super(props)
-    this.state = {
-      state: this.init(props),
-    }
+  }
+
+  componentWillMount() {
+    this.setState({
+      state: this.init(this.props),
+    })
+    this.ctx = app<State, Actions>({
+      init: () => this.init(this.props),
+      actions: this.actions,
+      view: noop,
+      onRender: _ => {
+        if (!this.ctx) {
+          return
+        }
+        this.setState({
+          state: this.ctx.getState(),
+        })
+      }
+    })
   }
 
   render() {
