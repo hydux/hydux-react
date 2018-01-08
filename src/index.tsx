@@ -8,7 +8,7 @@ class PureComp extends React.PureComponent { }
 
 export function PureView(props) {
   return (
-    <PureComp {...props.state}>
+    <PureComp {...props}>
       {props.children}
     </PureComp>
   )
