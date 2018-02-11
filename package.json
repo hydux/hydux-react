@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/hydux/hydux-react#readme",
   "devDependencies": {
+    "@types/lru-cache": "^4.1.0",
     "@types/mocha": "^2.2.44",
     "@types/node": "^8.0.56",
     "@types/react": "^16.0.32",
@@ -55,6 +56,7 @@
   },
   "dependencies": {
     "hydux": "^0.2.0",
+    "lru-cache": "^4.1.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   }

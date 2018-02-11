@@ -20,6 +20,10 @@
   version "4.14.74"
   resolved "http://registry.npm.taobao.org/@types/lodash/download/@types/lodash-4.14.74.tgz#ac3bd8db988e7f7038e5d22bd76a7ba13f876168"
 
+"@types/lru-cache@^4.1.0":
+  version "4.1.0"
+  resolved "http://registry.npm.taobao.org/@types/lru-cache/download/@types/lru-cache-4.1.0.tgz#ef69ce9c3ebb46bd146f0d80f0c1ce38b0508eae"
+
 "@types/marked@0.3.0":
   version "0.3.0"
   resolved "http://registry.npm.taobao.org/@types/marked/download/@types/marked-0.3.0.tgz#583c223dd33385a1dda01aaf77b0cd0411c4b524"
@@ -2086,7 +2090,7 @@ lowercase-keys@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/lowercase-keys/download/lowercase-keys-1.0.0.tgz#4e3366b39e7f5457e35f1324bdf6f88d0bfc7306"
 
-lru-cache@^4.0.1:
+lru-cache@^4.0.1, lru-cache@^4.1.1:
   version "4.1.1"
   resolved "http://registry.npm.taobao.org/lru-cache/download/lru-cache-4.1.1.tgz#622e32e82488b49279114a4f9ecf45e7cd6bba55"
   dependencies:
