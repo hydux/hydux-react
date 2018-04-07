@@ -11,7 +11,7 @@ export declare abstract class HyduxComponent<Props, State, Actions> extends Reac
     abstract view: (props: Props, state: State, actions: Actions) => JSX.Element | null | false;
     ctx: {
         actions: Actions;
-        getState: () => State;
+        state: State;
     };
     state: {
         state: State;
@@ -25,4 +25,7 @@ export declare type Props = {
     onSuccess?: () => void;
     onCancel?: () => void;
 };
-export default function withReact<State, Actions>(container?: any): (app: App<State, Actions>) => App<State, Actions>;
+export interface Options {
+    hydrate?: boolean;
+}
+export default function withReact<State, Actions>(container?: any, options?: Options): (app: App<State, Actions>) => App<State, Actions>;

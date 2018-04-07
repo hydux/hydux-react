@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render as reactRender } from 'react-dom'
+import * as ReactDOM from 'react-dom'
 import app, { App, ActionsType, noop, Sub } from 'hydux'
 
 export { React, Sub }
@@ -20,7 +20,7 @@ export abstract class HyduxComponent<Props, State, Actions> extends React.PureCo
   abstract view: (props: Props, state: State, actions: Actions) => JSX.Element | null | false
   ctx: {
     actions: Actions,
-    getState: () => State,
+    state: State
   }
   state = {
     state: null as any as State
@@ -42,14 +42,18 @@ export abstract class HyduxComponent<Props, State, Actions> extends React.PureCo
           return
         }
         this.setState({
-          state: this.ctx.getState(),
+          state: this.ctx.state,
         })
       }
     })
   }
 
   render() {
-    return this.view(this.props, this.state.state, this.ctx.actions)
+    return this.view(
+      this.props,
+      this.state.state,
+      this.ctx.actions,
+    )
   }
 
 }
@@ -60,21 +64,36 @@ export type Props = {
   onCancel?: () => void,
 }
 
-// work for hmr
+export interface Options {
+  hydrate?: boolean
+}
+
+// hack for hmr
 let _container
-export default function withReact<State, Actions>(container?): (app: App<State, Actions>) => App<State, Actions> {
+export default function withReact<State, Actions>(
+  container?,
+  options?: Options,
+): (app: App<State, Actions>) => App<State, Actions> {
   container = container || _container
   if (!container) {
     container = _container = document.createElement('div')
     document.body.appendChild(container)
   }
+  options = {
+    hydrate: false,
+    ...options,
+  }
+  let render =
+    options.hydrate
+      ? ReactDOM.hydrate
+      : ReactDOM.render
   return app => props => app({
     ...props,
     onRender(view) {
       props.onRender && props.onRender(view)
       // ReactDOM.render is already batched
       // if wrapped by rAF it might break input's value and onChange
-      return reactRender(view, container)
+      return render(view, container)
     }
   })
 }

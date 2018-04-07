@@ -32,9 +32,6 @@ module.exports = module.exports = {
           { test: /\.tsx?$/,
             use: {
               loader: "awesome-typescript-loader",
-              query: {
-                configFileName: "./tsconfig.2015.json"
-              }
             },
           },
           // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.

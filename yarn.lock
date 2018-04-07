@@ -44,9 +44,18 @@
   version "8.0.56"
   resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-8.0.56.tgz#c4652f88d7a677e26ccc16c1485c282ce28f1ce9"
 
-"@types/react@^16.0.32":
-  version "16.0.32"
-  resolved "http://registry.npm.taobao.org/@types/react/download/@types/react-16.0.32.tgz#9f23e534d1c1b7ce8cb4f034b449cfc220375888"
+"@types/react-dom@^16.0.4":
+  version "16.0.4"
+  resolved "http://registry.npm.taobao.org/@types/react-dom/download/@types/react-dom-16.0.4.tgz#2e8fd45f5443780ed49bf2cdd9809e6091177a7d"
+  dependencies:
+    "@types/node" "*"
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@^16.2.0":
+  version "16.3.5"
+  resolved "http://registry.npm.taobao.org/@types/react/download/@types/react-16.3.5.tgz#bd3b21285602ea7cadb4b9e0d9711d96fd5692cc"
+  dependencies:
+    csstype "^2.0.0"
 
 "@types/shelljs@0.7.0":
   version "0.7.0"
@@ -778,6 +787,10 @@ crypto-browserify@^3.11.0:
 crypto-random-string@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/crypto-random-string/download/crypto-random-string-1.0.0.tgz#a230f64f568310e1498009940790ec99545bca7e"
+
+csstype@^2.0.0:
+  version "2.1.1"
+  resolved "http://registry.npm.taobao.org/csstype/download/csstype-2.1.1.tgz#37b01a7a9958ef0b88167ff6678deccd732e0ae2"
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
@@ -1629,11 +1642,12 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/https-browserify/download/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
 
-hydux@^0.2.0:
-  version "0.2.0"
-  resolved "http://registry.npm.taobao.org/hydux/download/hydux-0.2.0.tgz#3035fb47a4557422a94713de7ec1474effac1b34"
+hydux@^0.3.4:
+  version "0.3.4"
+  resolved "http://registry.npm.taobao.org/hydux/download/hydux-0.3.4.tgz#422cb4bc896b6954d961927e6f013e9156f5249c"
   dependencies:
-    picodom "^1.0.2"
+    tslib "^1.8.1"
+    ultradom "^2.0.0"
   optionalDependencies:
     remotedev "^0.2.7"
 
@@ -2607,10 +2621,6 @@ performance-now@^0.2.0:
   version "0.2.0"
   resolved "http://registry.npm.taobao.org/performance-now/download/performance-now-0.2.0.tgz#33ef30c5c77d4ea21c5a53869d91b56d8f2555e5"
 
-picodom@^1.0.2:
-  version "1.0.2"
-  resolved "http://registry.npm.taobao.org/picodom/download/picodom-1.0.2.tgz#f37c037cb7ce7f3ddced3efe96e5a1c77132c3cd"
-
 pify@^2.0.0:
   version "2.3.0"
   resolved "http://registry.npm.taobao.org/pify/download/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
@@ -3476,6 +3486,10 @@ tslib@^1.0.0, tslib@^1.7.1:
   version "1.8.1"
   resolved "http://registry.npm.taobao.org/tslib/download/tslib-1.8.1.tgz#6946af2d1d651a7b1863b531d6e5afa41aa44eac"
 
+tslib@^1.8.1:
+  version "1.9.0"
+  resolved "http://registry.npm.taobao.org/tslib/download/tslib-1.9.0.tgz#e37a86fda8cbbaf23a057f473c9f4dc64e5fc2e8"
+
 tslint-config-standard@^7.0.0:
   version "7.0.0"
   resolved "http://registry.npm.taobao.org/tslint-config-standard/download/tslint-config-standard-7.0.0.tgz#47bbf25578ed2212456f892d51e1abe884a29f15"
@@ -3612,6 +3626,10 @@ uglifyjs-webpack-plugin@^0.4.6:
 uid-number@^0.0.6:
   version "0.0.6"
   resolved "http://registry.npm.taobao.org/uid-number/download/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
+
+ultradom@^2.0.0:
+  version "2.3.4"
+  resolved "http://registry.npm.taobao.org/ultradom/download/ultradom-2.3.4.tgz#717e1fd9d48a92875ca5a0cca672e036f22e61b4"
 
 ultron@~1.1.0:
   version "1.1.1"
