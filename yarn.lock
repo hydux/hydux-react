@@ -1642,12 +1642,12 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/https-browserify/download/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
 
-hydux@^0.4.0:
-  version "0.4.0"
-  resolved "http://registry.npm.taobao.org/hydux/download/hydux-0.4.0.tgz#44b7d82d461a1fcb9d9257fffd22f994fe0a1194"
+hydux@^0.4.6:
+  version "0.4.6"
+  resolved "http://registry.npm.taobao.org/hydux/download/hydux-0.4.6.tgz#9e13bf8ef54001ed033e03ac0730369ef832bdc5"
   dependencies:
     tslib "^1.8.1"
-    ultradom "^2.0.0"
+    ultradom "2.0.0"
   optionalDependencies:
     remotedev "^0.2.7"
 
@@ -3627,9 +3627,9 @@ uid-number@^0.0.6:
   version "0.0.6"
   resolved "http://registry.npm.taobao.org/uid-number/download/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
 
-ultradom@^2.0.0:
-  version "2.3.4"
-  resolved "http://registry.npm.taobao.org/ultradom/download/ultradom-2.3.4.tgz#717e1fd9d48a92875ca5a0cca672e036f22e61b4"
+ultradom@2.0.0:
+  version "2.0.0"
+  resolved "http://registry.npm.taobao.org/ultradom/download/ultradom-2.0.0.tgz#f1c9e72e762fc21c1024fd6746f12080ea632c3c"
 
 ultron@~1.1.0:
   version "1.1.1"

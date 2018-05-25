@@ -66,13 +66,18 @@ export type Props = {
 
 export interface Options {
   hydrate?: boolean
+  /**
+   * In debug mode, hydux-react will mount the hydux state in a root react component, so we can modify the state in React Devtools.
+   */
+  debug?: boolean
 }
 
 // hack for hmr
 let _container
+let mounted = false
 export default function withReact<State, Actions>(
   container?,
-  options?: Options,
+  options: Options = {},
 ): (app: App<State, Actions>) => App<State, Actions> {
   container = container || _container
   if (!container) {
@@ -87,10 +92,45 @@ export default function withReact<State, Actions>(
     options.hydrate
       ? ReactDOM.hydrate
       : ReactDOM.render
+  const UpdateEvent = '@hydux-react/update-state'
+  if (options.debug) {
+    class Root extends React.Component {
+      state = {}
+      actions: any
+      view: ((s: any, a: any) => any) = () => null
+      componentDidMount() {
+        document.addEventListener(UpdateEvent, (e: CustomEvent) => {
+          this.view = e.detail[0]
+          this.actions = e.detail[2]
+          this.setState(e.detail[1])
+        })
+      }
+      render() {
+        return this.view(this.state, this.actions)
+      }
+    }
+    if (!mounted) {
+      mounted = true
+      render(<Root />, container)
+    }
+  }
+
   return app => props => app({
     ...props,
+    view:
+      options!.debug ? (
+        (state, actions) => {
+          return [props.view, state, actions]
+        }
+      ) : props.view,
     onRender(view) {
       props.onRender && props.onRender(view)
+      if (options!.debug) {
+        document.dispatchEvent(new CustomEvent(UpdateEvent, {
+          detail: view
+        }))
+        return
+      }
       // ReactDOM.render is already batched
       // if wrapped by rAF it might break input's value and onChange
       return render(view, container)

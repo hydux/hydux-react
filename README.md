@@ -37,7 +37,7 @@ export default app({
     down: () => state => ({ count: state.count - 1 }),
     up: () => state => ({ count: state.count + 1 })
   },
-  view: (state: State) => (actions: Actions) =>
+  view: (state: State, actions: Actions) =>
     <div>
       <h1>{state.count}</h1>
       <button onClick={actions.down}>–</button>
