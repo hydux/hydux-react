@@ -27,5 +27,9 @@ export declare type Props = {
 };
 export interface Options {
     hydrate?: boolean;
+    /**
+     * In debug mode, hydux-react will mount the hydux state in a root react component, so we can modify the state in React Devtools.
+     */
+    debug?: boolean;
 }
 export default function withReact<State, Actions>(container?: any, options?: Options): (app: App<State, Actions>) => App<State, Actions>;
