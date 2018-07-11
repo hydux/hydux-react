@@ -1,5 +1,4 @@
 /// <reference types="react" />
-/// <reference types="lru-cache" />
 import * as LRUCache from 'lru-cache';
 export default function memoize<A, Res>(callback: (a: A, evt: React.SyntheticEvent<any>) => Res, a: A): (evt: any) => Res;
 export default function memoize<A, B, Res>(callback: (a: A, b: B, evt: React.SyntheticEvent<any>) => Res, a: A, b: B): Res;

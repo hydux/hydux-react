@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/hydux/hydux-react#readme",
   "devDependencies": {
+    "@types/lodash": "^4.14.111",
     "@types/lru-cache": "^4.1.0",
     "@types/mocha": "^2.2.44",
     "@types/node": "^8.0.56",
@@ -52,11 +53,11 @@
     "tslint": "^5.8.0",
     "tslint-config-standard": "^7.0.0",
     "typedoc": "^0.9.0",
-    "typescript": "^2.6.2",
+    "typescript": "^2.9.2",
     "webpack": "^3.10.0"
   },
   "dependencies": {
-    "hydux": "^0.4.6",
+    "hydux": "^0.5.1",
     "lru-cache": "^4.1.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"

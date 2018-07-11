@@ -20,6 +20,10 @@
   version "4.14.74"
   resolved "http://registry.npm.taobao.org/@types/lodash/download/@types/lodash-4.14.74.tgz#ac3bd8db988e7f7038e5d22bd76a7ba13f876168"
 
+"@types/lodash@^4.14.111":
+  version "4.14.111"
+  resolved "http://registry.npm.taobao.org/@types/lodash/download/@types/lodash-4.14.111.tgz#d926250baa9526c0ffe85914dd10363068e7893a"
+
 "@types/lru-cache@^4.1.0":
   version "4.1.0"
   resolved "http://registry.npm.taobao.org/@types/lru-cache/download/@types/lru-cache-4.1.0.tgz#ef69ce9c3ebb46bd146f0d80f0c1ce38b0508eae"
@@ -1642,10 +1646,11 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/https-browserify/download/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
 
-hydux@^0.4.6:
-  version "0.4.6"
-  resolved "http://registry.npm.taobao.org/hydux/download/hydux-0.4.6.tgz#9e13bf8ef54001ed033e03ac0730369ef832bdc5"
+hydux@^0.5.1:
+  version "0.5.1"
+  resolved "http://registry.npm.taobao.org/hydux/download/hydux-0.5.1.tgz#73aa5a4965ee30e430ed5570112cdf79acaf829c"
   dependencies:
+    lru-cache "^4.1.3"
     tslib "^1.8.1"
     ultradom "2.0.0"
   optionalDependencies:
@@ -2107,6 +2112,13 @@ lowercase-keys@^1.0.0:
 lru-cache@^4.0.1, lru-cache@^4.1.1:
   version "4.1.1"
   resolved "http://registry.npm.taobao.org/lru-cache/download/lru-cache-4.1.1.tgz#622e32e82488b49279114a4f9ecf45e7cd6bba55"
+  dependencies:
+    pseudomap "^1.0.2"
+    yallist "^2.1.2"
+
+lru-cache@^4.1.3:
+  version "4.1.3"
+  resolved "http://registry.npm.taobao.org/lru-cache/download/lru-cache-4.1.3.tgz#a1175cf3496dfc8436c156c334b4955992bce69c"
   dependencies:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
@@ -3594,9 +3606,13 @@ typescript@2.4.1:
   version "2.4.1"
   resolved "http://registry.npm.taobao.org/typescript/download/typescript-2.4.1.tgz#c3ccb16ddaa0b2314de031e7e6fee89e5ba346bc"
 
-typescript@^2.2.1, typescript@^2.6.2:
+typescript@^2.2.1:
   version "2.6.2"
   resolved "http://registry.npm.taobao.org/typescript/download/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
+
+typescript@^2.9.2:
+  version "2.9.2"
+  resolved "http://registry.npm.taobao.org/typescript/download/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
 
 ua-parser-js@^0.7.9:
   version "0.7.17"
