@@ -35,7 +35,7 @@ export default app({
 
 ### PureView
 
-React.PureComponent helper, we won't render or
+[React.PureComponent](https://reactjs.org/docs/react-api.html#reactpurecomponent) helper, with which the component uses a shallow prop comparison to determine whether to re-render, which in turn prevents unnecessary re-rendering.
 
 ```tsx
 
@@ -53,7 +53,7 @@ export function View(props) {
 
 ## ErrorBoundary
 
-We can use ErrorBoundary Component to catch children's error, it's a [React 16 feature](https://reactjs.org/docs/error-boundaries.html).
+We can use the ErrorBoundary component to catch children's error, which requires a [React 16 feature](https://reactjs.org/docs/error-boundaries.html).
 
 ```tsx
 import { ErrorBoundary } from 'hydux-react'
