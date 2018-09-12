@@ -53,7 +53,7 @@ export function View(props) {
 
 ## ErrorBoundary
 
-We can use the ErrorBoundary component to catch children's error, which is a [React 16 feature](https://reactjs.org/docs/error-boundaries.html).
+We can use the ErrorBoundary component to catch children's error, which requires a [React 16 feature](https://reactjs.org/docs/error-boundaries.html).
 
 ```tsx
 import { ErrorBoundary } from 'hydux-react'
