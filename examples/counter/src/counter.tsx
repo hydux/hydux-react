@@ -1,4 +1,4 @@
-import { React } from '../../../src/index'
+import { React, PureView } from '../../../src/index'
 import { Cmd, noop } from 'hydux'
 const initState = { count: 0 }
 
@@ -18,12 +18,17 @@ const actions = {
         actions.upN) ]
 }
 const view = (state: State, actions: Actions) => (
-  <div>
-    <h1>{state.count}</h1>
-    <button onClick={_ => actions.down()}>–</button>
-    <button onClick={_ => actions.up()}>+</button>
-    <button onClick={_ => actions.upLater()}>+ later</button>
-  </div>
+  <PureView state={state} actions={actions}>
+    {() => (
+      console.log('render', state.count),
+      <div>
+        <h1>{state.count}</h1>
+        <button onClick={_ => actions.down()}>–</button>
+        <button onClick={_ => actions.up()}>+</button>
+        <button onClick={_ => actions.upLater()}>+ later</button>
+      </div>
+    )}
+  </PureView>
 )
 export default { init, actions, view }
 export type Actions = typeof actions

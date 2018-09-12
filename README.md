@@ -3,7 +3,7 @@ React renderer for hydux.
 
 ## Install
 ```sh
-yarn add hydux-react # or npm i hydux-react
+yarn add hydux hydux-react # or npm i hydux hydux-react
 ```
 
 ## Usage
@@ -14,22 +14,7 @@ import _app from 'hydux'
 import withPersist from 'hydux/lib/enhancers/persist'
 import withReact, { React } from 'hydux-react'
 
-// let app = withPersist<State, Actions>({
-//   key: 'my-counter-app/v1'
-// })(_app)
-
-// use built-in 1kb picodom to render the view.
 let app = withReact()(_app)
-
-if (process.env.NODE_ENV === 'development') {
-  // built-in dev tools, without pain.
-  const devTools = require('hydux/lib/enhancers/devtools').default
-  const logger = require('hydux/lib/enhancers/logger').default
-  const hmr = require('hydux/lib/enhancers/hmr').default
-  app = logger()(app)
-  app = devTools()(app)
-  app = hmr()(app)
-}
 
 export default app({
   init: () => { count: 1 },
@@ -46,6 +31,46 @@ export default app({
 })
 ```
 
+## Helpers
+
+### PureView
+
+React.PureComponent helper, we won't render or
+
+```tsx
+
+import { PureView } from 'hydux-react'
+
+export function View(props) {
+  return (
+    <PureView {...props}> // The props passed to PureView would be shallow compared and determine whether diff and render child components.
+      {() => <ChildComponent {...props} />} // here we pass function as children to avoid executing child components' render function.
+    </PureView>
+  )
+}
+
+```
+
+## ErrorBoundary
+
+We can use ErrorBoundary Component to catch children's error, it's a [React 16 feature](https://reactjs.org/docs/error-boundaries.html).
+
+```tsx
+import { ErrorBoundary } from 'hydux-react'
+
+export function View(props) {
+  return (
+    <ErrorBoundary
+      report={(error, errorInfo) => void} // Custom error handler function
+      renderMessage={(error, errorInfo) => React.ChildNode} // Custom error message renderer, default is `return null`
+    >
+      {() => <ChildComponent {...props} />} // here we pass function as children to catch errors in child components' render function.
+    </ErrorBoundary>
+  )
+}
+```
+
+
 ## Counter App
 
 ```sh
@@ -57,6 +82,6 @@ npm start
 
 Now open http://localhost:8080 and hack!
 
-##` License
+## License
 
 MIT

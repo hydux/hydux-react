@@ -1,6 +1,6 @@
-import _app from 'hydux'
+import * as Hydux from 'hydux'
 import withPersist from 'hydux/lib/enhancers/persist'
-import withReact, { React } from '../../../src/index'
+import withReact, { React, ErrorBoundary } from '../../../src/index'
 import { ActionsType } from 'hydux/lib/types'
 import './polyfill.js'
 import Intro from './intro'
@@ -11,8 +11,8 @@ import CounterComp from './comp'
 //   key: 'time-game/v1'
 // })(_app)
 let app = withReact<State, Actions>(void 0, {
-  debug: true
-})(_app)
+  useComponent: true,
+})(Hydux.app as any) // HACK for different version of hydux
 
 if (process.env.NODE_ENV === 'development') {
   const devTools = require('hydux/lib/enhancers/devtools').default
@@ -33,10 +33,30 @@ const state = {
   counter2: Counter.init(),
 }
 
+function ErrorTest(props) {
+  let fn = () => {
+    throw new Error('test error boundary')
+  }
+  fn()
+  return null
+}
+
+class ErrorTest2 extends React.Component {
+  componentDidMount() {
+    throw new Error('error test')
+  }
+
+  render() {
+    return 'error test2'
+  }
+}
+
 type Actions = typeof actions
 type State = typeof state
 const view = (state: State, actions: Actions) =>
     <main>
+      <button onClick={actions.counter1.up}>up counter1</button>
+      <button onClick={actions.counter2.up}>up counter2</button>
       <h1>Counter1:</h1>
       {Counter.view(state.counter1, actions.counter1)}
       <h1>Counter2:</h1>
@@ -44,6 +64,12 @@ const view = (state: State, actions: Actions) =>
       <h1>Counter HyduxComponent:</h1>
       <CounterComp init={10} />
       <Intro />
+      <ErrorBoundary renderMessage={err => `[ErrorBoundary caught]: ${err.message}`}>
+        {() => <ErrorTest />}
+      </ErrorBoundary>
+      <ErrorBoundary renderMessage={err => `[ErrorBoundary caught]: ${err.message}`}>
+        {() => <ErrorTest2 />}
+      </ErrorBoundary>
     </main>
 
 export default app({
