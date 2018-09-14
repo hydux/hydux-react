@@ -61,7 +61,7 @@
     "react": "^16.5.1",
     "react-dom": "^16.5.1"
   },
-  "peerDependencies": {
-    "hydux": "^0.5.5"
+  "optionalDependencies": {
+    "hydux": "^0.5.4"
   }
 }

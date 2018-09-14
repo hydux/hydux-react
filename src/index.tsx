@@ -10,13 +10,18 @@ function shallowDiffers (a, b) {
   return false
 }
 
-export class PureView<P = any,S = any> extends React.Component<P, S> {
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowDiffers(this.props, nextProps)
+export interface PureViewProps<T> {
+  stateInUse: T
+  children: JSX.Element | ((p: T) => JSX.Element)
+}
+
+export class PureView<P> extends React.Component<PureViewProps<P>> {
+  shouldComponentUpdate(nextProps: PureViewProps<P>, nextState, nextContext) {
+    return shallowDiffers(this.props.stateInUse, nextProps.stateInUse)
   }
   render() {
-    const { children } = this.props
-    return typeof children === 'function' ? (children as any)() : children
+    const { children, stateInUse } = this.props
+    return typeof children === 'function' ? children(stateInUse) : children
   }
 }
 

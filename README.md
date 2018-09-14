@@ -43,8 +43,8 @@ import { PureView } from 'hydux-react'
 
 export function View(props) {
   return (
-    <PureView {...props}> // The props passed to PureView would be shallow compared and determine whether diff and render child components.
-      {() => <ChildComponent {...props} />} // here we pass function as children to avoid executing child components' render function.
+    <PureView stateInUse={props}> // The props passed to PureView would be shallow compared and determine whether diff and render child components.
+      {(props) => <ChildComponent {...props} />} // here we pass function as children to avoid executing child components' render function.
     </PureView>
   )
 }
