@@ -12,7 +12,7 @@ function shallowDiffers (a, b) {
 
 export interface PureViewProps<T> {
   stateInUse: T
-  children: JSX.Element | ((p: T) => JSX.Element)
+  children: JSX.Element | ((p: T) => JSX.Element | null)
 }
 
 export class PureView<P> extends React.Component<PureViewProps<P>> {
