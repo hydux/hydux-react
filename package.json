@@ -14,6 +14,10 @@
     "preversion": "npm run build && npm run build:dist && git add -A"
   },
   "pre-commit": [],
+  "files": [
+    "lib",
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hydux/hydux-react.git"
