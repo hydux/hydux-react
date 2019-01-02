@@ -1,9 +1,16 @@
 import * as React from 'react';
 import { App, ActionsType, Sub } from 'hydux';
 export { React, Sub };
-export declare class PureView<P = any, S = any> extends React.Component<P, S> {
-    shouldComponentUpdate(nextProps: any, nextState: any, nextContext: any): boolean;
-    render(): any;
+export interface PureViewProps<T> {
+    stateInUse: T;
+    children: JSX.Element | ((p: T) => JSX.Element | null);
+}
+/**
+ * @deprecated Deprecated for React.memo
+ */
+export declare class PureView<P> extends React.Component<PureViewProps<P>> {
+    shouldComponentUpdate(nextProps: PureViewProps<P>, nextState: any, nextContext: any): boolean;
+    render(): JSX.Element | (string & ((p: P) => JSX.Element | null)) | (number & ((p: P) => JSX.Element | null)) | (true & ((p: P) => JSX.Element | null)) | (false & ((p: P) => JSX.Element | null)) | (React.ReactNodeArray & ((p: P) => JSX.Element | null)) | null;
 }
 export declare class ErrorBoundary extends React.Component<{
     renderMessage?: (error: Error, errorInfo?: {
