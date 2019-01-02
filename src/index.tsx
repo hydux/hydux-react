@@ -15,6 +15,9 @@ export interface PureViewProps<T> {
   children: JSX.Element | ((p: T) => JSX.Element | null)
 }
 
+/**
+ * @deprecated Deprecated for React.memo
+ */
 export class PureView<P> extends React.Component<PureViewProps<P>> {
   shouldComponentUpdate(nextProps: PureViewProps<P>, nextState, nextContext) {
     return shallowDiffers(this.props.stateInUse, nextProps.stateInUse)

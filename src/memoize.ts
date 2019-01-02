@@ -31,6 +31,11 @@ export default function memoize<A, B, C, D, E, F, Res>(
   callback: (a: A, b: B, c: C, d: D, e: E, f: F, evt: React.SyntheticEvent<any>) => Res,
   a: A, b: B, c: C, d: D, e: E, f: F,
 ): (evt: any) => Res
+/**
+ * @deprecated Deprecated for React.useCallback
+ * @param callback
+ * @param args
+ */
 export default function memoize(callback: (...args: any[]) => any, ...args) {
   const hashStr = args.concat(callback).map(hash).join('|')
   let cached = cache.get(hashStr)

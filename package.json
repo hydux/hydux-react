@@ -41,8 +41,8 @@
     "@types/lru-cache": "^4.1.0",
     "@types/mocha": "^2.2.44",
     "@types/node": "^8.0.56",
-    "@types/react": "^16.2.0",
-    "@types/react-dom": "^16.0.4",
+    "@types/react": "^16.7.2",
+    "@types/react-dom": "^16.0.9",
     "awesome-typescript-loader": "^3.4.1",
     "clean-webpack-plugin": "^0.1.17",
     "cross-env": "^5.1.1",
@@ -62,10 +62,10 @@
   },
   "dependencies": {
     "lru-cache": "^4.1.1",
-    "react": "^16.5.1",
-    "react-dom": "^16.5.1"
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   },
   "optionalDependencies": {
-    "hydux": "^0.5.4"
+    "hydux": "^0.5.8"
   }
 }
